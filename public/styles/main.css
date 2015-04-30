@@ -1,0 +1,81 @@
+body {
+  background-color: #ddd;
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #222;
+}
+
+.main-container {
+  max-width: 340px;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 5px 5px #aaa;
+}
+
+.title {
+  margin-top: 15px;
+}
+
+.help {
+  font-size: 75%;
+  color: #570;
+  border-left: 5px solid green;
+  padding-left: 5px;
+  margin: 2px 10px;
+}
+
+.signin {
+  width: 112px;
+  margin: 0 auto;
+}
+
+.required {
+  color: red;
+  font-size: 80%;
+}
+
+.submit {
+  text-align: right;
+}
+
+.example {
+  margin-top: 30px;
+  border-top: 2px #ddd solid;
+}
+
+.example > p {
+  font-size: 80%;
+}
+
+.sample-screenshot {
+  width: 340px;
+  height: 628px;
+  background-image: url(../images/submit.jpg);
+  background-size: 340px 628px;
+  background-repeat: no-repeat;
+}
+
+.login-subtext {
+  font-size: 50%;
+}
+
+input:not([type=submit]):not([type=file]), textarea {
+  width: 200px;
+  padding: 5px;
+}
+
+input[type=file] {
+  margin: 10px;
+}
+
+input[type=submit] {
+  font-weight: bold;
+  font-size: 100%;
+  text-transform: lowercase;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px #333;
+  cursor: pointer;
+}
