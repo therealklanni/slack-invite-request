@@ -6,7 +6,7 @@ apply:
   # Displayed at the top of the page
   header:
     blurb: "You're almost there!"
-    description: 
+    description:
       "Please fill out the form below and upload your verification
       screenshot to complete your application. Your application will
       be reviewed as quickly as possible and your invitation will be
@@ -49,7 +49,7 @@ apply:
         name: "community"
         class: "community"
         title: "Community name"
-        help: 
+        help:
           "To help speed up the verification process, you may provide
           the name(s) of any communities you are a member of."
         required: false
@@ -59,7 +59,7 @@ apply:
         name: "comments"
         class: "comments"
         title: "Comments"
-        help: 
+        help:
           "Any additional information you would like to provide
           to help expedite your request."
         required: false
@@ -83,10 +83,9 @@ apply:
         html: <input type="file" class="screenshot" accept="image/*" id="screenshot" name="screenshot">
 login:
   blurb: "Thanks for your interest in joining!"
-  detail: 
+  detail:
     "For security reasons, we request that you sign in with Google+
     to continue..."
   subtext:
-    "Your public profile information and public G+ activity will be 
+    "Your public profile information and public G+ activity will be
     used to verify your identity."
-  clientID: "paste your client ID here"
