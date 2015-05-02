@@ -19,13 +19,23 @@ var assign = require('lodash/object/assign');
 
 var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
-strings.signin.clientId = process.env.GOOGLE_CLIENTID;
-var nav = {
+var gaToken = process.env.GA_TOKEN;
+var slackUri = process.env.SLACK_WEBHOOK_URL;
+var clientId = process.env.GOOGLE_CLIENTID;
+
+strings.main = assign({}, {
   title: strings.title,
-  user: {}
-}
-strings.signin.title = strings.title;
-strings.apply.title = strings.title;
+  gaToken: gaToken
+}, strings.main);
+strings.signin = assign({}, {
+  title: strings.title,
+  gaToken: gaToken,
+  clientId: clientId
+}, strings.signin);
+strings.apply = assign({}, {
+  title: strings.title,
+  gaToken: gaToken
+}, strings.apply);
 
 app.engine('.hbs', hbs({
   defaultLayout: 'main',
@@ -56,7 +66,7 @@ app.use(
 );
 
 app.get('/', function (req, res) {
-  res.render('main', assign({}, strings, {
+  res.render('main', assign({}, strings.main, {
     user: res.locals.displayName
   }));
 });
