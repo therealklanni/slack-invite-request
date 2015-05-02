@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">{{title}}</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      {{#if user}}
+      {{!-- <form class="navbar-form navbar-right" role="form">
+        <a class="btn btn-primary" href="/signout">Sign out</a>
+      </form> --}}
+      <div class="navbar-right">
+        <span class="navbar-text">{{user}}</span>
+      </div>
+      {{else}}
+      <form class="navbar-form navbar-right" role="form">
+        <a class="btn btn-success" href="/signin">Sign in</a>
+      </form>
+      {{/if}}
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+

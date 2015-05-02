@@ -1,0 +1,25 @@
+{{> nav}}
+
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="login-title">{{team}}</h1>
+    <h3 class="login-blurb">{{blurb}}</h3>
+    <p class="login-detail">{{detail}}</p>
+    <div class="signin" id="signinButton">
+      <span class="g-signin"
+        data-scope="profile https://www.googleapis.com/auth/plus.profile.emails.read"
+        data-clientid="{{clientId}}"
+        data-redirecturi="/signin"
+        data-accesstype="offline"
+        data-cookiepolicy="single_host_origin"
+        data-callback="signInCallback">
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <p class="login-subtext small">{{subtext}}</p>
+</div>
+
+{{> scripts}}
