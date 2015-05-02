@@ -1,5 +1,41 @@
+{{> nav}}
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
-    <h1>Hello, world!</h1>
+    {{#header}}
+    <h1>{{blurb}}</h1>
+    <p>{{detail}}</p>
+    <p><a class="btn btn-primary btn-lg" href="/apply" role="button">Apply now &raquo;</a></p>
+    <p>{{subtext}}</p>
+    {{/header}}
   </div>
 </div>
+
+{{#about}}
+<div class="container">
+  <div class="row">
+    {{#team}}
+    <div class="col-md-4">
+      <h2>About us</h2>
+      <p class="lead">We are team {{name}}</p>
+      <p>{{description}}</p>
+      <p><a class="btn btn-default" href="{{link}}" role="button">View details &raquo;</a></p>
+    </div>
+    {{/team}}
+    {{!-- Add some additional info in these spaces, or remove them and remove the "col-md-4" class above --}}
+    <div class="col-md-4">
+      <h2>Check out our blog</h2>
+      <p>We post about our ops, events, and photos of our agents in the field. See what we've been up to!</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+   </div>
+    <div class="col-md-4">
+      <h2>Events</h2>
+      <p>We organize events monthly, as well as for official operations. If you're a member, you can check out what upcoming events there are and sign up to join us.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+</div>
+{{/about}}
+
+{{> scripts}}
