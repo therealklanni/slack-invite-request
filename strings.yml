@@ -2,6 +2,7 @@
 # -
 # Configure the strings below however suits your needs
 ---
+title: Slack Invite Request
 apply:
   # Displayed at the top of the page
   header:
@@ -81,7 +82,7 @@ apply:
         required: false
         readonly: false
         html: <input type="file" class="screenshot" accept="image/*" id="screenshot" name="screenshot">
-login:
+signin:
   blurb: "Thanks for your interest in joining!"
   detail:
     "For security reasons, we request that you sign in with Google+
