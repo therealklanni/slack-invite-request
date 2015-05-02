@@ -3,6 +3,21 @@
 # Configure the strings below however suits your needs
 ---
 title: Slack Invite Request
+main:
+  header:
+    blurb: "Join us on Slack!"
+    detail:
+      "... and help us bring down the Resistance! First we just need to verify
+      some information from you and then we'll get you started."
+    subtext:
+      "We look forward to seeing you there."
+  about:
+    team:
+      name: "Enlightened AZ"
+      link: "https://enlightened.slack.com"
+      description:
+        "We're a team of dedicated Enlightened players around the Phoenix, AZ
+        area."
 apply:
   # Displayed at the top of the page
   header:
@@ -12,7 +27,7 @@ apply:
       screenshot to complete your application. Your application will
       be reviewed as quickly as possible and your invitation will be
       sent to the email address below if you are approved."
-    required: "Required"
+    required: "Required field"
 
   form:
     fullName:
@@ -40,7 +55,7 @@ apply:
         # title shown to user
         title: "Ingress agent name"
         # help text shown to user below title text
-        help: "Let us know your agent name for verification"
+        help: "Let us know your agent name for verification."
         # required fields must be filled in to submit the form
         required: true
         # readonly fields are not editable
@@ -66,7 +81,7 @@ apply:
         required: false
         readonly: false
         # if this property is defined, the input will use the defined html
-        html: <textarea id="comments" name="comments" rows="4"></textarea>
+        html: <br><textarea class="form-control" id="comments" name="comments" rows="4"></textarea>
 
       -
         name: "screenshot"
@@ -81,12 +96,12 @@ apply:
           screenshot from the <i>official Android or iOS app</i>."
         required: false
         readonly: false
-        html: <input type="file" class="screenshot" accept="image/*" id="screenshot" name="screenshot">
+        html: <input type="file" class="form-control screenshot" accept="image/*" id="screenshot" name="screenshot">
 signin:
   blurb: "Thanks for your interest in joining!"
   detail:
-    "For security reasons, we request that you sign in with Google+
-    to continue..."
+    "To help verify your identity, we request that you sign in with Google+
+    to continue."
   subtext:
-    "Your public profile information and public G+ activity will be
-    used to verify your identity."
+    "Your public profile information and public G+ activity will be used to
+    verify your identity."
