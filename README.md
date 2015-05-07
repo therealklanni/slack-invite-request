@@ -3,16 +3,25 @@
 ![SIR](https://raw.githubusercontent.com/therealklanni/slack-invite-request/master/public/images/bot.png)
 
 Fully-customizable webapp for generating invite requests to your private Slack 
-team. Authenticates users via Google Sign-In and then displays form details for 
-the user requesting an invite by posting to a group/channel/user of your choice
+team. Authenticates applicants via Google Sign-In and then displays form details 
+submitted by the applicant by posting to a group/channel/user of your choice 
 on Slack. 
 
-The user will see the following pages in order:
+The applicant will see the following pages in order:
 
-1. `/` - provides some information about the app and your Slack team
+1. `/` - provides some information about SIR and your Slack team
 2. `/signin` - Google authentication
 3. `/apply` - custom form to gather important details from the user
 4. `/thanks` - thank the user for submitting and what to expect next
+ 
+SIR makes use of [Handlebars](http://handlebarsjs.com/) templates and 
+[Bootstrap](http://getbootstrap.com/) UI, so it's **mobile-friendly** out of 
+the box and **highly-customizable**. Most static strings can be easily configured 
+from a [YAML](http://www.yaml.org/start.html) config file, making quick edits a 
+breeze even if you have no web development experience.
+
+Deploying your SIR can be a little more complex, but Heroku takes most of the pain 
+out of it. See below for more details.
 
 ## Installation
 
