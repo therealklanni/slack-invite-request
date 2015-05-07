@@ -107,7 +107,7 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Internal Server Error');
 });
 
-app.use('/static', express.static('public', {
+app.use(express.static('public', {
   index: false
 }));
 
