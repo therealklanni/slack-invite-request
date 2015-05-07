@@ -21,7 +21,7 @@ Clone the repository to your web server
 Alternatively:
 
 * Install via `npm install slack-invite-request`
-* Download the [latest release](https://github.com/therealklanni/slack-invite-request/releases)
+* Download the [latest release](https://github.com/therealklanni/slack-invite-request/releases/latest)
 
 Then, configure Nginx/Apache or [deploy to Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction).
 
