@@ -17,7 +17,6 @@ var dotty = require('dotty');
 var fs = require('fs');
 var path = require('path');
 var yaml = require('js-yaml');
-var assign = require('lodash/object/assign');
 var async = require('async');
 
 var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
@@ -26,16 +25,16 @@ var gaToken = process.env.GA_TOKEN;
 var slackUri = process.env.SLACK_WEBHOOK_URL;
 var clientId = process.env.GOOGLE_CLIENTID;
 
-strings.main = assign({}, {
+strings.main = _.assign({}, {
   title: strings.title,
   gaToken: gaToken
 }, strings.main);
-strings.signin = assign({}, {
+strings.signin = _.assign({}, {
   title: strings.title,
   gaToken: gaToken,
   clientId: clientId
 }, strings.signin);
-strings.apply = assign({}, {
+strings.apply = _.assign({}, {
   title: strings.title,
   gaToken: gaToken
 }, strings.apply);
@@ -121,7 +120,7 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
     var filename = field + '-' + fileObj.name;
     var dest = __dirname + '/public/images/' + filename;
 
-    assign(fileObj, {
+    _.assign(fileObj, {
       dest: dest,
       uri: req.originUri + '/images/' + filename
     });
