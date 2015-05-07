@@ -1,5 +1,5 @@
 .title {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .signin {
@@ -15,20 +15,11 @@
   margin: 1px;
 }
 
-.example {
-  margin-top: 30px;
-  border-top: 2px #ddd solid;
-}
-
-.example > p {
-  margin-top: 10px;
-}
-
 .sample-screenshot {
   width: 340px;
   height: 628px;
   background-image: url(/images/submit.jpg);
-  background-size: 340px 628px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 

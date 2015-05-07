@@ -11,31 +11,36 @@
 {{/header}}
 
 <div class="container">
-  <form method="post" action="/apply" enctype="multipart/form-data" id="application">
-    {{#form}}
-      <div class="form-group">
-      {{#fullName}}
-        {{> field}}
-      {{/fullName}}
-      </div>
-      <div class="form-group">
-      {{#email}}
-        {{> field}}
-      {{/email}}
-      </div>
-      {{#custom}}
-      <div class="form-group">
-        {{> field}}
-      </div>
-      {{/custom}}
-    {{/form}}
+  <div class="col-xs-12 col-md-8">
+    <form method="post" action="/apply" enctype="multipart/form-data" id="application">
+      {{#form}}
+        <div class="form-group">
+        {{#fullName}}
+          {{> field}}
+        {{/fullName}}
+        </div>
+        <div class="form-group">
+        {{#email}}
+          {{> field}}
+        {{/email}}
+        </div>
+        {{#custom}}
+        <div class="form-group">
+          {{> field}}
+        </div>
+        {{/custom}}
+      {{/form}}
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 
-  <div class="example">
-    <p class="small">Here's a sample screenshot, for reference:</p>
-    <div class="sample-screenshot"></div>
+  <div class="col-xs-12 col-md-4">
+    <div class="hidden-md hidden-lg"><hr></div>
+    <div class="example">
+      <p class="small">Here's a sample screenshot, for reference:</p>
+      <div class="sample-screenshot img-responsive"></div>
+    </div>
   </div>
 </div>
 
