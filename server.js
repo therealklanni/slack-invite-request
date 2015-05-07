@@ -8,6 +8,7 @@ var session = require('express-session');
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var validate = require('./lib/validate');
 var rateLimit = require('./lib/rate-limit');
 
@@ -16,6 +17,7 @@ var fs = require('fs');
 var path = require('path');
 var yaml = require('js-yaml');
 var assign = require('lodash/object/assign');
+var async = require('async');
 
 var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
@@ -54,6 +56,7 @@ app.use(
   cookieParser(),
   bodyParser.urlencoded({ extended: true }),
   bodyParser.json(),
+  multer(),
   function (req, res, next) {
     var user = dotty.get(req, 'session.user');
 
@@ -61,6 +64,10 @@ app.use(
       res.locals.displayName = user.displayName;
     }
 
+    next();
+  },
+  function (req, res, next) {
+    req.originUri = req.protocol + '://' + req.get('host');
     next();
   }
 );
@@ -100,7 +107,34 @@ app.get('/apply', validate(), function (req, res) {
   }));
 });
 
-app.post('/apply', rateLimit());
+app.post('/apply', validate(), rateLimit(), function (req, res) {
+  var user = dotty.get(req, 'session.user');
+  var files = req.files;
+  var renameJobs = [];
+
+  for (var field in files) {
+    var fileObj = files[field];
+    var tmpPath = fileObj.path;
+    var filename = field + '-' + fileObj.name;
+    var dest = __dirname + '/public/images/' + filename;
+
+    assign(fileObj, {
+      dest: dest,
+      uri: req.originUri + '/images/' + filename
+    });
+
+    renameJobs.push(async.apply(fs.rename, tmpPath, dest));
+  }
+
+  async.parallel(renameJobs, function (err) {
+    if (err) {
+      console.error(err);
+      return void res.sendStatus(500);
+    }
+
+    res.sendStatus(200);
+  });
+});
 
 app.use(function(err, req, res, next) {
   console.error(err.stack);
