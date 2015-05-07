@@ -12,6 +12,7 @@ var multer = require('multer');
 var validate = require('./lib/validate');
 var rateLimit = require('./lib/rate-limit');
 
+var _ = require('lodash');
 var dotty = require('dotty');
 var fs = require('fs');
 var path = require('path');
@@ -73,9 +74,7 @@ app.use(
 );
 
 app.get('/', function (req, res) {
-  res.render('main', assign({}, strings.main, {
-    user: res.locals.displayName
-  }));
+  res.render('main', _.assign({}, strings.main, dotty.get(req, 'session.user')));
 });
 
 app.get('/signin', function (req, res) {
