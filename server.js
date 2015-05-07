@@ -18,6 +18,7 @@ var fs = require('fs');
 var path = require('path');
 var yaml = require('js-yaml');
 var async = require('async');
+var changeCase = require('change-case');
 
 var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
@@ -150,7 +151,42 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
       return void res.sendStatus(500);
     }
 
-    res.sendStatus(200);
+    res.redirect('/thanks');
+
+    slack({
+      channel: channel,
+      username: botName,
+      icon_url: req.originUri + 'images/bot.png',
+      attachments: [
+        {
+          fallback: user.displayName + ' wants to join Slack',
+          author_name: user.displayName,
+          author_link: user.url,
+          author_icon: dotty.get(user, 'image.url'),
+          color: '#28f428',
+          pretext: 'New invite request:',
+          text: req.body.comments ? '"' + req.body.comments + '"' : undefined,
+          fields: _.map(
+            _.pairs(_.omit(req.body, 'comments')),
+            _.flow(
+              function (x) { return x; },
+              _.partialRight(_.map, function (str, i) {
+                return i ? str : changeCase.title(str);
+              }),
+              _.partial(_.zipObject, ['title', 'value']),
+              _.partialRight(_.assign, { short: true })
+            )
+          )
+            .concat(_.map(files, function (file) {
+              return {
+                title: file.fieldname,
+                value: '<' + file.uri + '|View>',
+                short: true
+              }
+            }))
+        }
+      ]
+    });
   });
 });
 
