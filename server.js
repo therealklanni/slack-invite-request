@@ -131,6 +131,8 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
   var files = req.files;
   var renameJobs = [];
 
+  console.log('Received application from "%s <%s>"', user.displayName, user.emails[0].value);
+
   for (var field in files) {
     var fileObj = files[field];
     var tmpPath = fileObj.path;
