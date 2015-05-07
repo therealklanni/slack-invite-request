@@ -21,10 +21,33 @@ var async = require('async');
 
 var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
-var gaToken = process.env.GA_TOKEN;
-var slackUri = process.env.SLACK_WEBHOOK_URL;
-var clientId = process.env.GOOGLE_CLIENTID;
+var env = process.env;
+var gaToken = env.GA_TOKEN;
+var slackUrl = env.SLACK_WEBHOOK_URL;
+var clientId = env.GOOGLE_CLIENTID;
+var channel = env.SLACK_CHANNEL;
+var botName = env.SLACK_BOT_NAME || 'SIR';
 
+function exitWithError(err) {
+  console.error(err);
+  process.exit(1);
+}
+
+if (!gaToken) {
+  exitWithError('Please set GA_TOKEN environment variable.')
+}
+
+if (!slackUrl) {
+  exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
+}
+
+if (!clientId) {
+  exitWithError('Please set GOOGLE_CLIENTID environment variable.')
+}
+
+var slack = require('./lib/slack')(slackUrl);
+
+// extend strings
 strings.main = _.assign({}, {
   title: strings.title,
   gaToken: gaToken
