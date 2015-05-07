@@ -100,6 +100,10 @@ app.post('/signin', rateLimit(), function (req, res) {
   }
 });
 
+app.get('/thanks', validate(), function (req, res) {
+  res.render('thanks', _.assign({}, strings.main, dotty.get(req, 'session.user')));
+});
+
 app.get('/apply', validate(), function (req, res) {
   res.render('apply', assign({}, strings.apply, {
     user: res.locals.displayName

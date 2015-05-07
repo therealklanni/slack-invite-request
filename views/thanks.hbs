@@ -1,10 +1,17 @@
 {{> nav}}
 
-<h1>Thank you, <span class="thanks-name">{{fullName}}</span>!</h1>
+<div class="jumbotron">
+  <div class="container">
+    <h2>Thank you, <span class="thanks-name">{{displayName}}</span>!</h1>
+    <p>Your <span class="thanks-team text-primary">{{about.team.name}}</span> application is being
+    reviewed. If approved, you will receive an email at
+    &lt;<span class="thanks-email text-primary">{{#each emails}}{{#if @first}}{{value}}{{/if}}{{/each}}</span>&gt;
+    with further instructions.</p>
+  </div>
+</div>
 
-<p>Your <span class="thanks-team">{{team}}</span> application is being
-processed. If you are approved, you will receive an email at
-&lt;<span class="thanks-email">{{email}}</span>&gt;
-with further instructions.</p>
+<div class="container">
+  <p class="small">Your application is now being processed. By submitting an application you are not guaranteed to receive an invite. Invitations are issued at the discretion of <span class="thanks-team text-primary">{{about.team.name}}'s</span> admin team. Please do not resubmit your application if you do not receive an invite.</p>
+</div>
 
 {{> scripts}}
