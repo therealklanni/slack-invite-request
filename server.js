@@ -58,15 +58,6 @@ app.use(
   bodyParser.json(),
   multer(),
   function (req, res, next) {
-    var user = dotty.get(req, 'session.user');
-
-    if (user) {
-      res.locals.displayName = user.displayName;
-    }
-
-    next();
-  },
-  function (req, res, next) {
     req.originUri = req.protocol + '://' + req.get('host');
     next();
   }
@@ -78,7 +69,6 @@ app.get('/', function (req, res) {
 
 app.get('/signin', function (req, res) {
   var user = dotty.get(req, 'session.user');
-  console.log('locals', res.locals)
 
   if (user) {
     res.redirect('/apply');
@@ -104,9 +94,12 @@ app.get('/thanks', validate(), function (req, res) {
 });
 
 app.get('/apply', validate(), function (req, res) {
-  res.render('apply', assign({}, strings.apply, {
-    user: res.locals.displayName
-  }));
+  var user = dotty.get(req, 'session.user');
+
+  strings.apply.form.fullName.value = user.displayName;
+  strings.apply.form.email.value = user.emails[0].value;
+
+  res.render('apply', _.assign({}, strings.apply, user));
 });
 
 app.post('/apply', validate(), rateLimit(), function (req, res) {
