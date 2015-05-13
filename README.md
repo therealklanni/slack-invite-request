@@ -103,3 +103,15 @@ field configurations. More advanced users can also modify the *view templates*
 themselves for even higher degree of customization. If you choose to do this,
 please note that the `fullName` and `email` fields should still be considered 
 necessary.
+
+## Planned
+
+- [ ] Redis (or possibly any other db) support
+- [ ] Support other authentication platforms (OpenID Connect, etc)
+- [ ] Admin page (track who you've already sent and invite to, etc) maybe?
+
+***PRs accepted!***
+
+## License
+
+MIT © [Kevin Lanni](https://github.com/therealklanni)
