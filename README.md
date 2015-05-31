@@ -54,7 +54,7 @@ new project.
 ### Environment variables
 
 * `GA_TOKEN` - To track analytics on your SIR, create a Google Analytics token (set this to `X` if you don't want analytics)
-* `GOOGLE_CLIENT_ID` - the Client ID from above
+* `GOOGLE_CLIENTID` - the Client ID from above
 * `SLACK_WEBHOOK_URL` - obtained by adding a "Incoming Webhook" integration to your Slack team
 * `SLACK_CHANNEL` - the destination for the request notifications; this can be a public #channel, private group, or a @username. (optional, for overriding the default channel in the Slack "Incoming Webhook" integration settings)
 * `SLACK_BOT_NAME` - override the bot name (default: "SIR")
