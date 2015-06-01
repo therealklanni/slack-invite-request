@@ -53,6 +53,8 @@ new project.
 
 ### Environment variables
 
+These environment variables are required (with the exception of `SLACK_CHANNEL`) to enable the **Google SignIn** and **Slack** integrations. Make sure to set these before starting your server.
+
 * `GA_TOKEN` - To track analytics on your SIR, create a Google Analytics token (set this to `X` if you don't want analytics)
 * `GOOGLE_CLIENT_ID` - the Client ID from above
 * `SLACK_WEBHOOK_URL` - obtained by adding a "Incoming Webhook" integration to your Slack team
