@@ -2,7 +2,7 @@
 # -
 # Configure the strings below however suits your needs
 ---
-title: Slack Invite Request
+title: Slack Invite Request Demo
 main:
   header:
     blurb: "Join us on Slack!"
@@ -13,11 +13,12 @@ main:
       "We look forward to seeing you there."
   about:
     team:
-      name: "Enlightened AZ"
+      name: "Enlightened Demo"
       link: "https://enlightened.slack.com"
       description:
-        "We're a team of dedicated Enlightened players around the Phoenix, AZ
-        area."
+        "This is just a SIR demo. Please feel free to send an application (we
+        enjoy reading your comments), but no invites will be sent out as a
+        result."
 apply:
   # Displayed at the top of the page
   header:
@@ -26,7 +27,8 @@ apply:
       "Please fill out the form below and upload your verification
       screenshot to complete your application. Your application will
       be reviewed as quickly as possible and your invitation will be
-      sent to the email address below if you are approved."
+      sent to the email address below if you are approved. The more
+      information you provide, the more likely we can verify you."
     required: "Required field"
 
   form:
@@ -94,7 +96,7 @@ apply:
           approval. Screenshots of the <i>intel page, IITC, or other
           unofficial app will not be accepted</i>—you must capture a
           screenshot from the <i>official Android or iOS app</i>."
-        required: false
+        required: true
         readonly: false
         html: <input type="file" class="form-control screenshot" accept="image/*" id="screenshot" name="screenshot">
 signin:
