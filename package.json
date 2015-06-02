@@ -1,6 +1,6 @@
 {
   "name": "slack-invite-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Handle Slack invite requests like a SIR",
   "main": "server.js",
   "scripts": {
