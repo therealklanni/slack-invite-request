@@ -15,12 +15,11 @@ var rateLimit = require('./lib/rate-limit');
 var _ = require('lodash');
 var dotty = require('dotty');
 var fs = require('fs');
+var mv = require('mv');
 var path = require('path');
 var yaml = require('js-yaml');
 var async = require('async');
 var changeCase = require('change-case');
-
-var mv = require('mv');
 
 var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
@@ -146,8 +145,7 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
       uri: req.originUri + '/images/' + filename
     });
 
-    mv(tmpPath, dest, function(err) {
-    });
+    renameJobs.push(async.apply(mv, tmpPath, dest));
   }
 
   async.parallel(renameJobs, function (err) {
